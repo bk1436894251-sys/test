@@ -1,0 +1,30 @@
+name: Pull Request 基础检查
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  repository-checks:
+    name: 仓库基础检查
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 检查空白错误
+        run: git diff --check "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"
+
+      - name: 防止常见秘密文件进入仓库
+        shell: bash
+        run: |
+          forbidden_files=$(git ls-files | grep -E '(^|/)(\.env|id_rsa|id_ed25519|.*\.pem|.*\.p12)$' || true)
+          if [ -n "$forbidden_files" ]; then
+            echo "发现不应提交的秘密文件："
+            echo "$forbidden_files"
+            exit 1
+          fi
