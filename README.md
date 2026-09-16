@@ -32,3 +32,19 @@
 - `CONTRIBUTING.md`：分支、提交与 PR 规范。
 - `.github/PULL_REQUEST_TEMPLATE.md`：创建 PR 时自动出现的说明模板。
 - `.github/workflows/pr-check.yml`：PR 基础自动检查。
+
+## BK 字幕提取软件
+
+仓库中的 `software/BKSubtitleOCR_v2_GPU便携版.zip` 是 Windows 便携版程序包。解压后，双击包内的启动程序即可运行，不需要安装 Python。
+
+功能包括视频字幕区域预览与框选、中文/英文/自动 OCR、标准 SRT 输出、可选 TXT 输出、批量视频处理，以及在兼容环境下优先使用 GPU 加速。
+
+下载与使用：
+
+1. 从 GitHub 下载 `software/BKSubtitleOCR_v2_GPU便携版.zip`。
+2. 使用 Windows 解压整个压缩包，不要只复制其中的 EXE。
+3. 保留解压后的 `_internal` 目录，并运行启动器。
+
+兼容性说明：Windows 10/11 64 位；支持 DirectML 的显卡会优先使用 GPU，无法使用时自动回退 CPU。不同电脑的驱动、系统组件和显卡型号可能影响速度。软件包通过 Git LFS 保存，下载时请确保 GitHub 客户端支持 LFS，或直接从仓库文件页面下载实际压缩包。
+
+当前提交包含可运行的便携版软件和构建规格文件；PyInstaller 的 `build`、`dist` 缓存不纳入版本控制。

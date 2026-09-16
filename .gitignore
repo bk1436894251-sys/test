@@ -18,3 +18,11 @@ Desktop.ini
 *.log
 tmp/
 temp/
+
+# Local PyInstaller output and test artifacts
+build/
+dist/
+outputs/
+work/
+*.pyc
+__pycache__/
