@@ -16,6 +16,14 @@
 
 这样，GitHub 会保留每次提交、每个 PR、检查结果和合并记录，方便追溯每一步。
 
+## 已启用的 GitHub 保护
+
+- `main` 的日常修改必须通过 Pull Request。
+- PR 必须通过“仓库基础检查”。
+- PR 中未解决的讨论会阻止合并。
+- `main` 禁止强制推送和删除，规则对仓库管理员同样生效。
+- 仓库采用线性提交历史，方便阅读和追溯。
+
 详细的新手教程见 [CODEX_GITHUB_TUTORIAL.md](CODEX_GITHUB_TUTORIAL.md)。
 
 ## 仓库结构
